@@ -1,0 +1,54 @@
+.left-content{
+  width:300px;
+  height:95vh;
+  float:left;
+
+  &__upper-box{
+    width:260px;
+    padding-left:20px;
+    padding-right:20px;
+    height:15vh;
+    line-height:15vh;
+    background-color:#253141;
+
+    p{
+      font-size:16px;
+      font-weight:bold;
+      color:$font-color;
+      height:16px;
+      float:left;
+      margin-right:80px;
+    }
+
+    i{
+      color:white;
+    }
+  }
+
+  &__under-box{
+    width:260px;
+    padding-left:20px;
+    padding-right:20px;
+    height:80vh;
+    background-color:#2f3e51;
+    overflow: scroll;
+
+    &__group-box{
+      height:71px;
+      width:260px;
+
+      &__group-name{
+        font-size:15px;
+        color:$font-color;
+        padding-top:20px;
+        text-decoration:none;
+      }
+
+      &__latest-statment{
+        font-size:11px;
+        color:$font-color;
+        margin-top:5px;
+      }
+    }
+  }
+}

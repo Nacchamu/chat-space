@@ -1,0 +1,4 @@
+%div.left-content__under-box__group-box
+  = link_to group_comments_path(group.id) do
+    %p.left-content__under-box__group-box__group-name= group.name
+  %p.left-content__under-box__group-box__latest-statment= group.last_comment

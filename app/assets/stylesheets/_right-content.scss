@@ -1,0 +1,38 @@
+.right-content__under-box{
+    overflow: scroll;
+    width:-webkit-calc(100vw-340px);
+    height:-webkit-calc(80vh - 135px);
+    padding-top:46px;
+    background-color:#AAA;
+    width:-webkit-calc(100vw - 340px);
+    float:left;
+
+  &__comment-box{
+    height:80px;
+
+    &__user-name{
+      font-size:16px;
+      font-weight:bold;
+      color:$sub-font-color;
+      float:left;
+      margin-left:40px;
+    }
+
+    &__datetime{
+      font-size:12px;
+      line-height:16px;
+      color:$sub-sub-font-color;
+      float:left;
+      margin-left:10px;
+    }
+
+    &__comment{
+      font-size:14px;
+      color:$sub-font-color;
+      clear:left;
+      margin-top:10px;
+      margin-left:40px;
+    }
+  }
+}
+

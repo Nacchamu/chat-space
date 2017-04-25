@@ -1,0 +1,27 @@
+%div.left-content
+  %div.left-content__upper-box
+    %p= current_user.name
+    = link_to new_group_path do
+      %i.fa.fa-pencil-square-o
+    = link_to edit_user_registration_path do
+      %i.fa.fa-gear
+  %div.left-content__under-box
+    = render @groups
+
+%div.right-content
+  %div.right-content__upper-box
+    %p.right-content__upper-box__group-name= @group.name
+    = link_to edit_group_path(@group) do
+      %p.right-content__upper-box__edit-button edit
+    %div.right-content__upper-box__member-box
+      - @users.each do |user|
+        %p.right-content__upper-box__member-box__group-member= user.name
+
+%div.right-content__under-box
+  = render @comments
+
+= form_for [@group, @comment],  html: {class: 'comment-form', multipart: true, remote: true, authenticity_token: true}, data: {"turbolinks" => false} do |f|
+  = f.text_field :comment, class: "comment-form__box",placeholder: "type a message", value: ''
+  = f.file_field :image, class: "comment-form__image"
+  = f.hidden_field :image_cache
+  %input.comment-form__button{type: "submit", value: "Sent"}/

@@ -1,0 +1,38 @@
+.right-content__upper-box{
+    width:100%;
+    height:-webkit-calc(15vh - 1px);
+    border-bottom:solid 1px #eeeeee;
+    width:-webkit-calc(100vw - 340px);
+    float:left;
+
+  &__group-name{
+    font-size:20px;
+    color:#333;
+    padding-top:35px;
+    margin-left:40px;
+    display:inline-block;
+    text-decoration:none;
+  }
+
+  &__edit-button{
+    border:solid $box-color;
+    color:$box-color;
+    text-align:center;
+    margin-left:500px;
+    height:40px;
+    width:60px;
+    margin-top:28px;
+    display:inline-block;
+  }
+
+  &__member-box{
+    margin-left:40px;
+
+    &__group-member{
+      font-size:12px;
+      color:$sub-sub-font-color;
+      margin-left:15px;
+      float:left;
+    }
+  }
+}
