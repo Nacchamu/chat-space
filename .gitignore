@@ -19,3 +19,5 @@
 
 
 .bash_profile
+
+config/secrets.yml
