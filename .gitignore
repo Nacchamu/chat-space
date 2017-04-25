@@ -17,3 +17,7 @@
 .byebug_history
 
 
+
+.bash_profile
+
+config/secrets.yml
