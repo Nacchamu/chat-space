@@ -2,6 +2,10 @@ $(function(){
   var href = location.pathname;
   var uname = $('.current_user_name').val();
 
+  setInterval(function(){
+    location.reload();
+  }, 5000);
+
     $('.comment-form').submit(function(e){
     e.preventDefault();
     e.stopImmediatePropagation();
