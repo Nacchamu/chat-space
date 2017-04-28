@@ -46,3 +46,7 @@ gem 'i18n_generators'
 gem 'carrierwave'
 gem 'fog'
 gem 'remotipart'
+
+group :production do
+  gem 'unicorn'
+end
