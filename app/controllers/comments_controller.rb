@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @comment = Comment.new(create_params)
     if @comment.save
       respond_to do |format|
@@ -18,9 +17,18 @@ class CommentsController < ApplicationController
     end
   end
 
+  def search
+    group = Group.find(params[:group_id])
+    view_id = params[:view_id]
+    @new_comments = group.comments.where('id > ?',view_id)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def create_params
-    # binding.pry
     params.require(:comment).permit(:comment, :image, :image_cache).merge(group_id: params[:group_id], user_id: current_user.id)
   end
 

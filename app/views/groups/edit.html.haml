@@ -6,14 +6,14 @@
         %label.chat-group-form__label{for: "chat_group_name"} グループ名
       .chat-group-form__field--right
         = f.text_field :name, class: "chat-group-form__input", id: "chat_group_name" ,placeholder: "グループ名を入力してください", value: @group.name
+
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         %label.chat-group-form__label{for: "chat_group_チャットメンバーを追加"} チャットメンバーを追加
+      .chat-group-form__field--right
         %input{type: "search", id: "keyword", placeholder: "ユーザーを検索", value: ""}/
         %ul#list
-      .chat-group-form__field--right
-        .chat-group-form__search.clearfix
-        #user-search-result
+
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
@@ -24,6 +24,7 @@
               %li.added-user-name= user.name
               %input{type: 'button', class: "delete-button", value: '削除'}
               %input{type: "hidden", name: "group[user_ids][]", value: user.id, class: "added-user-name_input"}
+
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
