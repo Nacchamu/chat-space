@@ -18,9 +18,9 @@ class CommentsController < ApplicationController
   end
 
   def search
-    # binding.pry
+    group = Group.find(params[:group_id])
     view_id = params[:view_id]
-    @new_comments = Comment.where('id > ?',view_id)
+    @new_comments = group.comments.where('id > ?',view_id)
     respond_to do |format|
       format.html
       format.json

@@ -3,11 +3,7 @@ $(function(){
   var uname = $('.current_user_name').val();
 
   function buildHTML(data){
-    var user_name = (`<p class="right-content__under-box__comment-box__user-name">${data.user}`)
-    var datetime = (`<p class="right-content__under-box__comment-box__datetime">${data.date}`)
-    var comment = (`<p class="right-content__under-box__comment-box__comment">${data.comment}`)
-    var list_var = (`<div class="right-content__under-box__comment-box" data-id=${data.id}>${user_name}${datetime}${comment}`)
-    $('.right-content__under-box').append(list_var);
+    $('.right-content__under-box').append(`<div class="right-content__under-box__comment-box" data-id=${data.id}><p class="right-content__under-box__comment-box__user-name">${data.user}<p class="right-content__under-box__comment-box__datetime">${data.date}<p class="right-content__under-box__comment-box__comment">${data.comment}`);
   }
 
   $(function(){
@@ -26,7 +22,6 @@ $(function(){
             type: 'POST',
             url: href + '/search',
             data:{
-              db_id: db_comment_id,
               view_id: view_comment_id
             },
             dataType: 'json'
