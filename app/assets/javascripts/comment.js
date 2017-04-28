@@ -2,9 +2,49 @@ $(function(){
   var href = location.pathname;
   var uname = $('.current_user_name').val();
 
-  setInterval(function(){
-    location.reload();
-  }, 5000);
+  function buildHTML(data){
+    var user_name = (`<p class="right-content__under-box__comment-box__user-name">${data.user}`)
+    var datetime = (`<p class="right-content__under-box__comment-box__datetime">${data.date}`)
+    var comment = (`<p class="right-content__under-box__comment-box__comment">${data.comment}`)
+    var list_var = (`<div class="right-content__under-box__comment-box" data-id=${data.id}>${user_name}${datetime}${comment}`)
+    $('.right-content__under-box').append(list_var);
+  }
+
+  $(function(){
+    setInterval(function(){
+      $.ajax({
+        type: 'GET',
+        url: href,
+        data: '',
+        dataType: 'json'
+      })
+      .done(function(data){
+        var db_comment_id = data.id
+        var view_comment_id = $('.right-content__under-box__comment-box').last(1).data('id');
+        if(db_comment_id != view_comment_id){
+          $.ajax({
+            type: 'POST',
+            url: href + '/search',
+            data:{
+              db_id: db_comment_id,
+              view_id: view_comment_id
+            },
+            dataType: 'json'
+          })
+        .done(function(data){
+          $(data).each(function(index, ele){
+            buildHTML(ele);
+          })
+          view_comment_id = db_comment_id
+        })
+        .fail(function(){
+        })
+        }
+      })
+      .fail(function(){
+      })
+    },10000);
+  });
 
     $('.comment-form').submit(function(e){
     e.preventDefault();
@@ -20,11 +60,7 @@ $(function(){
       contentType: false
     })
     .done(function(data) {
-      var user_comment = (`<p class="right-content__under-box__comment-box__comment">${data.comment}`)
-      var datetime = (`<p class="right-content__under-box__comment-box__datetime">${data.date}`)
-      var user_name = (`<p class="right-content__under-box__comment-box__user-name">${data.user}`)
-      list_var = (`<div class="right-content__under-box__comment-box">${user_name}${datetime}${user_comment}`)
-      $('.right-content__under-box').append(list_var);
+      buildHTML(data);
       $('#for_flash').removeClass('alert');
       $('#for_flash').addClass('notice').text('送信に成功しました');
       $('.comment-form__box').val('');
@@ -33,6 +69,6 @@ $(function(){
     .fail(function() {
       $('#for_flash').remove('notice');
       $('#for_flash').addClass('alert').text('文章を入力してください');
-    });
+    })
   });
 });

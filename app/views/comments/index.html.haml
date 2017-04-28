@@ -22,7 +22,7 @@
 
 = form_for [@group, @comment],  html: {class: 'comment-form', multipart: true, remote: true, authenticity_token: true}, data: {"turbolinks" => false} do |f|
   = f.text_field :comment, class: "comment-form__box", placeholder: "type a message", value: ''
-  %label{for: "image", class: "fa fa-picture-o" }
+  %label{for: "image", class: "fa fa-picture-o comment-form__icon" }
   = f.file_field :image, id: "image", style: "display: none;"
   = f.hidden_field :image_cache
   %input.comment-form__button{type: "submit", value: "Sent"}/

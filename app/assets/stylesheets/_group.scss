@@ -49,11 +49,13 @@
       padding-right: 20px;
       padding-left: 20px;
       box-sizing: border-box;
+      margin-top:30px;
     }
 
     &--right {
       float: right;
       width: 70%;
+      margin-top:30px;
       li{
         margin-right:5px;
         border-bottom:1px solide ;
@@ -70,6 +72,23 @@
     #list{
       .list{
         border-bottom: solid 1px;
+      }
+      .add_button{
+        float:right
+      }
+    }
+
+    #added-user-name-space{
+      div{
+        clear:left;
+        border-bottom: solid 1px;
+        height:25px;
+        .added-user-name{
+          float:left;
+        }
+        .delete-button{
+          float:right;
+        }
       }
     }
   }
