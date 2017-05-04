@@ -7,7 +7,7 @@ $(function() {
     if (word === '一致する人物はいませんでした。'){
       var item = $('<li class="list">').append(word);
     }else{
-      var item = $(`<li class="list">${word}<input class="add-button", type="button", value="追加"><input type="hidden" value=${id}  class="uer-id-input">`);
+      var item = $('<li class="list">' + word + '<input class="add-button", type="button", value="追加">' + '<input type="hidden" value=' + id +'  class="uer-id-input">');
     }
     list.append(item);
   }
@@ -20,7 +20,7 @@ $(function() {
   $('#list').on('click', '.add-button', function(){
     var add_user = $(this).parent().text();
     var add_user_id = $(this).siblings('.uer-id-input').val();
-    var user_name_list = $(`<div><li class="added-user-name">${add_user}<input class="delete-button", type="button", value="削除"><input type="hidden" name="group[user_ids][]" value=${add_user_id}  class="added-user-name_input">`);
+    var user_name_list = $('<div><li class="added-user-name">' + add_user + '<input class="delete-button", type="button", value="削除">' + '<input type="hidden" name="group[user_ids][]" value=' + add_user_id + ' class="added-user-name_input">');
     $('#added-user-name-space').append(user_name_list);
     $('.list').remove();
     $('#keyword').val("");
