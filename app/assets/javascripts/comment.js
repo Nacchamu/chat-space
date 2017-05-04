@@ -3,7 +3,7 @@ $(function(){
   var uname = $('.current_user_name').val();
 
   function buildHTML(data){
-    $('.right-content__under-box').append(`<div class="right-content__under-box__comment-box" data-id=${data.id}><p class="right-content__under-box__comment-box__user-name">${data.user}<p class="right-content__under-box__comment-box__datetime">${data.date}<p class="right-content__under-box__comment-box__comment">${data.comment}`);
+    $('.right-content__under-box').append('<div class="right-content__under-box__comment-box" data-id=' + data.id '><p class="right-content__under-box__comment-box__user-name">' + data.user +'<p class="right-content__under-box__comment-box__datetime">' + data.date + '<p class="right-content__under-box__comment-box__comment">' + data.comment);
   }
 
   $(function(){
