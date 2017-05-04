@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action unless: :user_signed_in?
+  before_action :confirm_user_sign_in, only: [:index],unless: :user_signed_in?
   add_flash_types :success, :info, :warning, :danger
 
   def configure_permitted_parameters
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  # def confirm_user_sign_in
-  #   redirect_to new_user_session_path, notice: 'ログインしてください'
-  # end
+  def confirm_user_sign_in
+    redirect_to new_user_session_path, notice: 'ログインしてください'
+  end
 end

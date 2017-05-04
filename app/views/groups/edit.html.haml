@@ -11,7 +11,7 @@
       .chat-group-form__field--left
         %label.chat-group-form__label{for: "chat_group_チャットメンバーを追加"} チャットメンバーを追加
       .chat-group-form__field--right
-        %input{type: "search", id: "keyword", placeholder: "ユーザーを検索", value: ""}/
+        %input{type: "text", id: "keyword", class: "chat-group-form__input",placeholder: "ユーザーを検索", value: ""}/
         %ul#list
 
     .chat-group-form__field.clearfix
@@ -21,7 +21,7 @@
         %ul#added-user-name-space
           - @group.users.each do |user|
             %div
-              %li.added-user-name = user.name
+              %li.added-user-name= user.name
               %input{type: 'button', class: "delete-button", value: '削除'}
               %input{type: "hidden", name: "group[user_ids][]", value: user.id, class: "added-user-name_input"}
 

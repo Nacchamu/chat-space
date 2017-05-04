@@ -15,14 +15,14 @@ set :ssh_options, auth_methods: ['publickey'],
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 
-set :default_env, {
-  rbenv_root: "/usr/local/rbenv",
-  path: "~/.rbenv/shims:~/.rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
-}
-set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
-set :sidekiq_queue, :carrierwave
+# set :default_env, {
+#   rbenv_root: "/usr/local/rbenv",
+#   path: "~/.rbenv/shims:~/.rbenv/bin:$PATH",
+#   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+#   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+# }
+# set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+# set :sidekiq_queue, :carrierwave
 
 
 after 'deploy:publishing', 'deploy:restart'
